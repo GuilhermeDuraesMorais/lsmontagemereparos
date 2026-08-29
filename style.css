@@ -714,6 +714,8 @@ canvas {
 
 .footer-links a:hover { color: var(--color-white); }
 
+.fixed-bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; background: var(--color-deep-blue) url('assets/imagens/banner.webp') no-repeat center center; background-size: cover; will-change: transform; }
+
 /* Consultas de Mídia Responsivas */
 @media (max-width: 992px) {
     .section-split { flex-direction: column; }
@@ -796,13 +798,10 @@ canvas {
     .footer-links a { margin: 0 0.75rem; }
 
     .fixed-bg-container {
-        background-size: auto 65vh;
-        background-position: 85% top;
-        background-color: #111;
+        background-size: cover;
+        background-position: 80% center; /* Ajusta para mostrar o lado direito da imagem (o homem) */
     }
 }
-
-.fixed-bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; background: var(--color-deep-blue) url('assets/imagens/banner.webp') no-repeat center center; background-size: cover; will-change: transform; }
 
 /* --- Elegant Animations --- */
 .animate-fade-in-up {
