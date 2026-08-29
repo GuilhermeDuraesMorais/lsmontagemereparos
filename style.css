@@ -798,9 +798,10 @@ canvas {
     .footer-links a { margin: 0 0.75rem; }
 
     .fixed-bg-container {
-        background-image: url('assets/imagens/banner2.webp');
-        background-size: contain;
-        background-position: center top;
+        background-image: linear-gradient(to bottom, transparent 40%, var(--color-deep-blue) 80%), url('assets/imagens/banner-mobile.webp');
+        background-size: 100% 100vh, contain;
+        background-position: center top, center top;
+        background-repeat: no-repeat, no-repeat;
         background-color: var(--color-deep-blue);
     }
 
