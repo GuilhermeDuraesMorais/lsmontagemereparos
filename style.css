@@ -801,6 +801,10 @@ canvas {
         background-size: cover;
         background-position: 80% center; /* Ajusta para mostrar o lado direito da imagem (o homem) */
     }
+
+    .floating-whatsapp {
+        display: flex;
+    }
 }
 
 /* --- Elegant Animations --- */
@@ -845,4 +849,27 @@ canvas {
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Botão WhatsApp Flutuante */
+.floating-whatsapp {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
 }
