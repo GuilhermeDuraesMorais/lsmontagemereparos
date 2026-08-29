@@ -100,3 +100,39 @@ if (hoursList) {
         }
     });
 }
+
+// Rolagem suave personalizada (mais lenta) para links internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // Tempo em milissegundos (aumente para ficar mais lento)
+            let start = null;
+
+            window.requestAnimationFrame(function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                // Easing (easeInOutCubic) para um efeito suave no início e fim
+                let ease = progress / duration;
+                ease = ease < 0.5 ? 4 * ease * ease * ease : 1 - Math.pow(-2 * ease + 2, 3) / 2;
+                
+                const currentPosition = startPosition + (distance * Math.min(ease, 1));
+                window.scrollTo(0, currentPosition);
+                
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    window.scrollTo(0, targetPosition);
+                }
+            });
+        }
+    });
+});
