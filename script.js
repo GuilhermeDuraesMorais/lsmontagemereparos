@@ -114,7 +114,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
             const startPosition = window.pageYOffset;
             const distance = targetPosition - startPosition;
-            const duration = 1200; // Tempo em milissegundos (aumente para ficar mais lento)
+            const duration = 1800; // Tempo em milissegundos (aumente para ficar mais lento)
             let start = null;
 
             window.requestAnimationFrame(function step(timestamp) {
